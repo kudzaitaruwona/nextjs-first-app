@@ -32,18 +32,10 @@ export default function CreateRoute(){
 
     function onSubmit(values: z.infer<typeof postSchema>){
         startTransition(async()=>{
-        /*     mutation({
-            body: values.content,
-            title: values.title
-        }); */
+        console.log('this runs on the client side')
 
-        console.log("hi from the client side")
-        await fetch("/api/create", {
-            method: "POST"
-        });
+       await createBlogActions(values)
 
-        toast.success('Post created Succesfully!');
-        router.push("/")
         })
     }
 
